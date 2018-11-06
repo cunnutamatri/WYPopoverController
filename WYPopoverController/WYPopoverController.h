@@ -210,6 +210,12 @@ typedef NS_OPTIONS(NSUInteger, WYPopoverAnimationOptions) {
 - (void)setPopoverContentSize:(CGSize)size animated:(BOOL)animated;
 - (void)performWithoutAnimation:(void (^)(void))aBlock;
 
+- (WYPopoverArrowDirection)arrowDirectionForRect:(CGRect)aRect
+                                          inView:(UIView*)aView
+                                     contentSize:(CGSize)aContentSize
+                                     arrowHeight:(float)aArrowHeight
+                        permittedArrowDirections:(WYPopoverArrowDirection)aArrowDirections;
+
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////

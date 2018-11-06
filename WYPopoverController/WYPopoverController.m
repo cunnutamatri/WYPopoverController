@@ -1443,11 +1443,14 @@ static float edgeSizeFromCornerRadius(float cornerRadius) {
                     completion:(void (^)(void))aCompletion
                   callDelegate:(BOOL)aCallDelegate;
 
+/*
+ Maio:  diventa  pubblica
 - (WYPopoverArrowDirection)arrowDirectionForRect:(CGRect)aRect
                                           inView:(UIView*)aView
                                      contentSize:(CGSize)aContentSize
                                      arrowHeight:(float)aArrowHeight
                         permittedArrowDirections:(WYPopoverArrowDirection)aArrowDirections;
+*/
 
 - (CGSize)sizeForRect:(CGRect)aRect
                inView:(UIView *)aView
