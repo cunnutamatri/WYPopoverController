@@ -2540,6 +2540,20 @@ static WYPopoverTheme *defaultTheme_ = nil;
                                      contentSize:(CGSize)contentSize
                                      arrowHeight:(float)arrowHeight
                         permittedArrowDirections:(WYPopoverArrowDirection)arrowDirections {
+    return [self arrowDirectionForRect:aRect
+                                inView:aView
+                           contentSize:contentSize
+                           arrowHeight:arrowHeight
+              permittedArrowDirections:arrowDirections
+                      autoGenIfMissing:YES];
+}
+
+- (WYPopoverArrowDirection)arrowDirectionForRect:(CGRect)aRect
+                                          inView:(UIView *)aView
+                                     contentSize:(CGSize)contentSize
+                                     arrowHeight:(float)arrowHeight
+                        permittedArrowDirections:(WYPopoverArrowDirection)arrowDirections
+                                autoGenIfMissing:(BOOL)autoGenIfMissing {
   WYPopoverArrowDirection arrowDirection = WYPopoverArrowDirectionUnknown;
 
   NSMutableArray *areas = [NSMutableArray arrayWithCapacity:0];
@@ -2619,7 +2633,7 @@ static WYPopoverTheme *defaultTheme_ = nil;
     }
   }
 
-  if (arrowDirection == WYPopoverArrowDirectionUnknown) {
+  if (autoGenIfMissing && arrowDirection == WYPopoverArrowDirectionUnknown) {
     if ([areas count] > 0) {
       arrowDirection = ((WYPopoverArea *)[areas objectAtIndex:0]).arrowDirection;
     } else {
